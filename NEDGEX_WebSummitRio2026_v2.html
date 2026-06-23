@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEDGEX — Web Summit Rio 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --coral:#F25440;
+  --coral-light:#FEE8E5;
+  --coral-mid:#FADBD7;
+  --mint:#D2EFC9;
+  --mint-dark:#A8DFA0;
+  --black:#111111;
+  --gray-dark:#4A4A4A;
+  --gray-mid:#8A8A8A;
+  --gray-light:#F5F5F5;
+  --gray-line:#E8E8E8;
+  --white:#FFFFFF;
+}
+html,body{background:#EBEBEB;font-family:'Inter',sans-serif;color:var(--black);-webkit-font-smoothing:antialiased}
+.deck{max-width:1100px;margin:0 auto;padding:20px 16px 60px}
+
+/* NAV */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0 18px;position:sticky;top:0;background:#EBEBEB;z-index:100;margin-bottom:20px}
+.nav-brand{display:flex;align-items:center;gap:10px}
+.nav-logo{font-size:13px;font-weight:700;letter-spacing:.5px;color:var(--coral)}
+.nav-sep{width:1px;height:14px;background:#CCCCCC}
+.nav-label{font-size:11px;color:var(--gray-mid);font-weight:400;letter-spacing:.3px}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-ctr{font-size:12px;color:var(--gray-mid);min-width:52px;text-align:center;font-variant-numeric:tabular-nums}
+.btn{background:var(--white);border:1px solid var(--gray-line);color:var(--gray-dark);padding:7px 16px;border-radius:8px;cursor:pointer;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;transition:all .15s}
+.btn:hover{border-color:#CCCCCC;background:var(--gray-light)}
+.btn-coral{background:var(--coral);border-color:var(--coral);color:var(--white)}
+.btn-coral:hover{background:#E04030;border-color:#E04030}
+
+/* SLIDE */
+.slide{background:var(--white);border-radius:20px;min-height:620px;width:100%;display:none;position:relative;overflow:hidden;border:1px solid var(--gray-line)}
+.slide.active{display:flex}
+.slide-num{position:absolute;bottom:28px;right:32px;font-size:11px;color:#CCCCCC;font-weight:400;letter-spacing:.5px}
+
+/* EYEBROW */
+.eyebrow{font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--coral);margin-bottom:14px}
+.eyebrow.dark{color:var(--gray-mid)}
+
+/* TYPE SCALE */
+.t-display{font-size:56px;font-weight:800;line-height:1.0;letter-spacing:-2px;color:var(--black)}
+.t-display-md{font-size:40px;font-weight:800;line-height:1.05;letter-spacing:-1.5px;color:var(--black)}
+.t-display-sm{font-size:28px;font-weight:700;line-height:1.1;letter-spacing:-1px;color:var(--black)}
+.t-headline{font-size:18px;font-weight:600;line-height:1.3;color:var(--black)}
+.t-body{font-size:14px;font-weight:400;line-height:1.65;color:var(--gray-dark)}
+.t-small{font-size:12px;font-weight:400;line-height:1.5;color:var(--gray-mid)}
+.t-mono{font-family:'Inter',monospace;font-size:11px;font-weight:500;letter-spacing:.5px}
+.coral{color:var(--coral)}
+
+/* DIVIDER */
+.div-line{width:32px;height:2px;background:var(--coral);border-radius:2px;margin:18px 0 22px}
+
+/* DOTS */
+.dots-row{display:flex;justify-content:center;gap:5px;margin-top:16px}
+.dot{width:5px;height:5px;border-radius:50%;background:#CCCCCC;cursor:pointer;transition:all .2s;border:none;padding:0}
+.dot.active{background:var(--coral);width:16px;border-radius:3px}
+
+/* ====================== SLIDE 1 — COVER ====================== */
+#s1{flex-direction:row;min-height:620px}
+.s1-left{width:58%;padding:56px 52px;display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid var(--gray-line)}
+.s1-right{flex:1;background:var(--gray-light);display:flex;flex-direction:column;justify-content:flex-end;padding:40px;gap:16px;position:relative;overflow:hidden}
+.s1-right-bg{position:absolute;inset:0;background:linear-gradient(135deg,#F5F5F5 0%,#EFEFEF 100%)}
+.s1-tag{display:inline-flex;align-items:center;gap:6px;background:var(--coral-light);border:1px solid var(--coral-mid);border-radius:40px;padding:5px 14px;font-size:11px;font-weight:600;color:var(--coral);width:fit-content;margin-bottom:32px}
+.s1-kpi-row{display:flex;flex-direction:column;gap:10px}
+.s1-kpi{background:var(--white);border:1px solid var(--gray-line);border-radius:12px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between}
+.s1-kpi-num{font-size:24px;font-weight:800;color:var(--coral);letter-spacing:-1px}
+.s1-kpi-label{font-size:11px;color:var(--gray-mid);font-weight:400;text-align:right;line-height:1.3}
+.s1-footer{border-top:1px solid var(--gray-line);padding-top:24px;margin-top:auto}
+.brand-pill{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--gray-mid);letter-spacing:.5px}
+.brand-dot{width:6px;height:6px;border-radius:50%;background:var(--coral)}
+
+/* ====================== SLIDE 2 — RESUMO ====================== */
+#s2{padding:52px 56px;flex-direction:column;gap:0}
+.kpi-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
+.kpi-box{border:1px solid var(--gray-line);border-radius:14px;padding:24px 20px;position:relative;overflow:hidden}
+.kpi-box.accent{background:var(--coral);border-color:var(--coral)}
+.kpi-box.mint{background:var(--mint);border-color:var(--mint-dark)}
+.kpi-big{font-size:44px;font-weight:800;letter-spacing:-2px;line-height:1;color:var(--black)}
+.kpi-box.accent .kpi-big{color:var(--white)}
+.kpi-box.accent .kpi-lbl{color:rgba(255,255,255,.75)}
+.kpi-lbl{font-size:11px;font-weight:500;color:var(--gray-mid);margin-top:8px;text-transform:uppercase;letter-spacing:.8px}
+.kpi-sub{font-size:11px;color:#BBBBBB;margin-top:3px}
+.kpi-box.accent .kpi-sub{color:rgba(255,255,255,.5)}
+.eco-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.eco-card{background:var(--gray-light);border-radius:10px;padding:14px 16px}
+.eco-label{font-size:10px;font-weight:600;color:var(--gray-mid);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
+.eco-tags{display:flex;flex-wrap:wrap;gap:5px}
+.tag{display:inline-block;border-radius:20px;padding:3px 10px;font-size:11px;font-weight:500}
+.tag-coral{background:var(--coral-light);color:var(--coral)}
+.tag-mint{background:var(--mint);color:#2D6E22}
+.tag-gray{background:#EBEBEB;color:var(--gray-dark)}
+.quote-strip{margin-top:12px;padding:18px 24px;border-left:3px solid var(--coral);background:var(--gray-light);border-radius:0 10px 10px 0}
+.quote-strip p{font-size:15px;font-weight:500;color:var(--black);line-height:1.5;font-style:italic}
+
+/* ====================== SLIDE 3 — FRENTES ====================== */
+#s3{padding:52px 56px;flex-direction:column}
+.opp4{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:28px}
+.opp-card{border:1px solid var(--gray-line);border-radius:14px;padding:24px;position:relative;overflow:hidden;transition:border-color .2s}
+.opp-card:nth-child(1){border-top:3px solid var(--coral)}
+.opp-card:nth-child(2){border-top:3px solid var(--mint-dark)}
+.opp-card:nth-child(3){border-top:3px solid var(--black)}
+.opp-card:nth-child(4){border-top:3px solid var(--gray-mid)}
+.opp-n{font-size:10px;font-weight:700;color:#CCCCCC;letter-spacing:2px;margin-bottom:10px}
+.opp-t{font-size:17px;font-weight:700;color:var(--black);margin-bottom:8px}
+.opp-p{font-size:13px;color:var(--gray-dark);line-height:1.55;margin-bottom:12px}
+.tags-row{display:flex;flex-wrap:wrap;gap:5px}
+
+/* ====================== SLIDE 4 — SEBRAE ====================== */
+#s4{padding:52px 56px;gap:52px}
+.s4-l{flex:1}
+.s4-r{width:320px;display:flex;flex-direction:column;gap:10px}
+.stat-row{background:var(--gray-light);border-radius:12px;padding:18px 20px;display:flex;align-items:center;gap:14px}
+.stat-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.si-coral{background:var(--coral-light)}
+.si-mint{background:var(--mint)}
+.stat-val{font-size:20px;font-weight:700;color:var(--black);letter-spacing:-0.5px}
+.stat-desc{font-size:11px;color:var(--gray-mid);margin-top:2px}
+.contact-card{display:flex;align-items:center;gap:12px;border:1px solid var(--gray-line);border-radius:12px;padding:14px 18px;margin-top:12px}
+.avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0}
+.av-coral{background:var(--coral-light);color:var(--coral)}
+.av-mint{background:var(--mint);color:#2D6E22}
+.av-gray{background:var(--gray-light);color:var(--gray-dark)}
+.contact-name{font-size:13px;font-weight:600;color:var(--black)}
+.contact-role{font-size:11px;color:var(--gray-mid);margin-top:1px}
+.highlight-card{background:var(--coral-light);border:1px solid var(--coral-mid);border-radius:12px;padding:18px 20px;margin-top:auto}
+.hc-label{font-size:10px;font-weight:700;color:var(--coral);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.hc-text{font-size:14px;font-weight:500;color:var(--black);line-height:1.5;font-style:italic}
+.unit-pills{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}
+.unit-pill{background:var(--white);border:1px solid var(--coral-mid);color:var(--coral);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500}
+
+/* ====================== SLIDE 5 — PROGRAMA ====================== */
+#s5{padding:52px 56px;gap:44px}
+.s5-l{width:340px;flex-shrink:0}
+.s5-r{flex:1}
+.funnel-list{display:flex;flex-direction:column;gap:0;margin-top:8px}
+.f-step{display:flex;gap:14px;position:relative}
+.f-num-col{display:flex;flex-direction:column;align-items:center;width:36px}
+.f-circle{width:36px;height:36px;border-radius:50%;border:2px solid var(--gray-line);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--black);background:var(--white);flex-shrink:0;z-index:1}
+.f-circle.active-c{border-color:var(--coral);color:var(--coral)}
+.f-circle.final-c{border-color:var(--coral);background:var(--coral);color:var(--white)}
+.f-line{width:2px;flex:1;background:var(--gray-line);margin:2px 0}
+.f-line.col-line{background:linear-gradient(var(--coral),var(--coral-mid))}
+.f-content{padding:6px 0 20px}
+.f-title{font-size:14px;font-weight:600;color:var(--black)}
+.f-sub{font-size:12px;color:var(--gray-mid);margin-top:2px}
+.feature-list{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.feat{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;background:var(--gray-light);border-radius:8px}
+.feat-dot{width:5px;height:5px;border-radius:50%;background:var(--coral);margin-top:5px;flex-shrink:0}
+.feat-text{font-size:13px;color:var(--gray-dark);line-height:1.4}
+.msg-bar{padding:16px 20px;background:var(--mint);border-radius:10px;margin-top:auto}
+.msg-bar p{font-size:13px;font-weight:500;color:var(--black);line-height:1.4;font-style:italic}
+
+/* ====================== SLIDE 6 — SICREDI ====================== */
+#s6{padding:52px 56px;gap:52px}
+
+/* ====================== SLIDE 7 — CUBO ====================== */
+#s7{padding:52px 56px;gap:52px}
+.cubo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
+.cubo-item{background:var(--gray-light);border-radius:10px;padding:16px;display:flex;align-items:flex-start;gap:10px}
+.cubo-icon{font-size:16px;flex-shrink:0;margin-top:2px}
+.cubo-item-title{font-size:13px;font-weight:600;color:var(--black)}
+.cubo-item-desc{font-size:11px;color:var(--gray-mid);margin-top:2px}
+
+/* ====================== SLIDE 8 — CORPORAÇÕES ====================== */
+#s8{padding:52px 56px;flex-direction:column}
+.corp2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:28px}
+.corp-card{border:1px solid var(--gray-line);border-radius:16px;padding:32px;min-height:220px;display:flex;flex-direction:column;gap:16px;position:relative;overflow:hidden}
+.corp-card.gc{border-top:3px solid #111}
+.corp-card.ec{border-top:3px solid var(--coral)}
+.corp-badge{display:inline-block;background:var(--gray-light);border-radius:20px;padding:3px 10px;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--gray-mid);width:fit-content}
+.corp-name{font-size:34px;font-weight:800;letter-spacing:-1.5px;color:var(--black)}
+.corp-sub{font-size:12px;color:var(--gray-mid);line-height:1.4}
+.corp-themes{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto}
+.corp-n{font-size:80px;font-weight:800;color:rgba(0,0,0,.04);position:absolute;right:20px;top:16px;line-height:1;letter-spacing:-4px}
+.bottom-bar{background:var(--gray-light);border-radius:10px;padding:14px 20px;width:100%;margin-top:16px;text-align:center}
+.bottom-bar p{font-size:14px;font-weight:500;color:var(--black);font-style:italic}
+
+/* ====================== SLIDE 9 — ENERGISA ====================== */
+#s9{padding:52px 56px;gap:44px}
+.opp-map{display:flex;flex-direction:column;gap:8px}
+.opp-row{display:flex;align-items:center;gap:14px;padding:14px 18px;border:1px solid var(--gray-line);border-radius:10px;position:relative}
+.opp-row-accent{position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--coral);border-radius:3px 0 0 3px}
+.opp-n2{font-size:10px;font-weight:700;color:var(--coral);width:18px;flex-shrink:0}
+.opp-info-title{font-size:13px;font-weight:600;color:var(--black)}
+.opp-info-desc{font-size:11px;color:var(--gray-mid);margin-top:1px}
+.tese-panel{background:var(--coral);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:14px}
+.tese-label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.tese-item{display:flex;align-items:center;gap:10px}
+.tese-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.6);flex-shrink:0}
+.tese-text{font-size:14px;font-weight:600;color:var(--white)}
+
+/* ====================== SLIDE 10 — GLOBO ====================== */
+#s10{padding:52px 56px;gap:44px}
+.globo-g{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:8px}
+.globo-item{background:var(--gray-light);border-radius:10px;padding:16px;text-align:center}
+.globo-emoji{font-size:22px;margin-bottom:8px}
+.globo-lbl{font-size:12px;font-weight:500;color:var(--black);line-height:1.3}
+.mint-panel{background:var(--mint);border-radius:14px;padding:24px;margin-top:12px}
+.mp-label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#2D6E22;margin-bottom:10px}
+.mp-tags{display:flex;flex-wrap:wrap;gap:6px}
+.mp-tag{background:var(--white);color:#2D6E22;border-radius:20px;padding:5px 12px;font-size:12px;font-weight:600}
+
+/* ====================== SLIDE 11 — PAINTER ROBOT ====================== */
+#s11{padding:52px 56px;gap:44px}
+.memo-card{background:var(--gray-light);border-radius:16px;padding:28px;width:340px;flex-shrink:0}
+.memo-type{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--coral);margin-bottom:10px}
+.memo-name{font-size:22px;font-weight:800;color:var(--black);letter-spacing:-0.8px;margin-bottom:4px}
+.memo-tag{font-size:11px;color:var(--gray-mid)}
+.memo-divider{height:1px;background:var(--gray-line);margin:16px 0}
+.memo-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--gray-line)}
+.memo-row:last-of-type{border:none}
+.mk{font-size:12px;color:var(--gray-mid)}
+.mv{font-size:12px;font-weight:600;color:var(--black)}
+.mv.coral{color:var(--coral)}
+.tam-section{margin-top:16px}
+.tam-lbl-row{display:flex;justify-content:space-between;margin-bottom:5px}
+.tam-lbl{font-size:11px;color:var(--gray-mid)}
+.tam-val{font-size:11px;font-weight:700}
+.bar-track{height:8px;background:var(--gray-line);border-radius:4px;margin-bottom:10px}
+.bar-fill{height:100%;border-radius:4px}
+.bf-coral{background:var(--coral)}
+.bf-mint{background:var(--mint-dark);width:21%}
+.feat-grid{flex:1;display:flex;flex-direction:column;gap:0}
+.feat-row{padding:16px 0;border-bottom:1px solid var(--gray-line);display:flex;align-items:flex-start;gap:14px}
+.feat-row:last-child{border:none}
+.feat-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.fi-c{background:var(--coral-light)}
+.fi-m{background:var(--mint)}
+.feat-row-title{font-size:14px;font-weight:600;color:var(--black)}
+.feat-row-desc{font-size:12px;color:var(--gray-mid);margin-top:2px}
+
+/* ====================== SLIDE 12 — MARAVALLEY ====================== */
+#s12{padding:52px 56px;gap:52px}
+.mv-4{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}
+.mv-stat{background:var(--gray-light);border-radius:12px;padding:16px 18px}
+.mv-num{font-size:24px;font-weight:800;color:var(--coral);letter-spacing:-1px}
+.mv-lbl{font-size:11px;color:var(--gray-mid);margin-top:4px}
+
+/* ====================== SLIDE 13 — MAPA ====================== */
+#s13{padding:52px 56px;flex-direction:column}
+.map-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
+.map-col{border:1px solid var(--gray-line);border-radius:14px;padding:20px 16px;display:flex;flex-direction:column;gap:8px}
+.map-col.c1{border-top:3px solid var(--coral)}
+.map-col.c2{border-top:3px solid #111}
+.map-col.c3{border-top:3px solid var(--mint-dark)}
+.map-col.c4{border-top:3px solid var(--gray-mid)}
+.map-head{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px}
+.c1 .map-head{color:var(--coral)}
+.c2 .map-head{color:var(--black)}
+.c3 .map-head{color:#2D6E22}
+.c4 .map-head{color:var(--gray-mid)}
+.map-name{font-size:13px;font-weight:500;color:var(--black)}
+.map-arrow-row{display:flex;justify-content:space-around;padding:4px 20px;margin:0}
+.map-arr{font-size:16px;color:#CCCCCC;text-align:center}
+.converge-block{background:var(--coral);border-radius:16px;padding:24px 32px;text-align:center;margin-top:0}
+.cb-title{font-size:22px;font-weight:800;color:var(--white);letter-spacing:-0.8px}
+.cb-sub{font-size:12px;color:rgba(255,255,255,.7);margin-top:5px}
+
+/* ====================== SLIDE 14 — PRÓXIMOS PASSOS ====================== */
+#s14{padding:52px 56px;flex-direction:column}
+.tl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.tl-col{}
+.tl-badge{width:64px;height:64px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin-bottom:20px;border:2px solid}
+.tl-b1{border-color:var(--coral);background:var(--coral-light)}
+.tl-b2{border-color:var(--black);background:var(--gray-light)}
+.tl-b3{border-color:var(--mint-dark);background:var(--mint)}
+.tl-days{font-size:20px;font-weight:800;letter-spacing:-1px;line-height:1}
+.tl-b1 .tl-days{color:var(--coral)}
+.tl-b2 .tl-days{color:var(--black)}
+.tl-b3 .tl-days{color:#2D6E22}
+.tl-unit{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--gray-mid)}
+.tl-items{display:flex;flex-direction:column;gap:8px}
+.tl-item{border:1px solid var(--gray-line);border-radius:8px;padding:11px 14px;font-size:12px;color:var(--gray-dark);display:flex;align-items:center;gap:8px;line-height:1.35}
+.tl-dot{width:4px;height:4px;border-radius:50%;flex-shrink:0}
+.td1{background:var(--coral)}
+.td2{background:var(--black)}
+.td3{background:var(--mint-dark)}
+
+/* ====================== SLIDE 15 — CONCLUSÃO ====================== */
+#s15{padding:72px 80px;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:var(--black)}
+#s15 .eyebrow{color:rgba(255,255,255,.4)}
+#s15 .t-display-sm{color:var(--white)}
+.conc-quote{font-size:20px;font-weight:400;color:rgba(255,255,255,.75);max-width:640px;line-height:1.55;margin:28px auto;font-style:italic}
+.conc-pills{display:flex;gap:10px;margin-top:32px;justify-content:center;flex-wrap:wrap}
+.conc-pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:40px;padding:9px 20px;font-size:12px;font-weight:500;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:7px}
+.cp-dot{width:6px;height:6px;border-radius:50%;background:var(--coral)}
+.conc-sig{margin-top:48px;font-size:10px;color:rgba(255,255,255,.2);letter-spacing:2px;text-transform:uppercase}
+#s15 .slide-num{color:rgba(255,255,255,.15)}
+.conc-divider{width:40px;height:2px;background:var(--coral);border-radius:2px;margin:20px auto}
+.airplane-mark{font-size:13px;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:1px;margin-bottom:4px}
+.airplane-mark span{color:var(--coral)}
+</style>
+</head>
+<body>
+<div class="deck">
+
+<!-- NAV -->
+<div class="nav">
+  <div class="nav-brand">
+    <div class="nav-logo">NEDGEX</div>
+    <div class="nav-sep"></div>
+    <div class="nav-label">Web Summit Rio 2026 · Relatório Executivo</div>
+  </div>
+  <div class="nav-right">
+    <button class="btn" onclick="prevSlide()">← Anterior</button>
+    <span class="nav-ctr" id="ctr">1 / 15</span>
+    <button class="btn btn-coral" onclick="nextSlide()">Próximo →</button>
+  </div>
+</div>
+
+<!-- ======================== SLIDE 1 — CAPA ======================== -->
+<div class="slide active" id="s1">
+  <div class="s1-left">
+    <div>
+      <div class="s1-tag">Relatório Executivo · Junho 2026</div>
+      <div class="eyebrow">Web Summit Rio 2026</div>
+      <div class="t-display">Resultados e<br><span class="coral">Oportunidades</span></div>
+    </div>
+    <div class="s1-footer">
+      <div style="font-size:11px;color:#CCCCCC">Confidencial · NEDGEX 2026</div>
+    </div>
+  </div>
+  <div class="s1-right">
+    <div class="s1-right-bg"></div>
+    <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:10px;flex:1;justify-content:center;padding-bottom:20px">
+      <div style="font-size:11px;font-weight:600;color:#CCCCCC;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">Resumo do Evento</div>
+      <div class="s1-kpi">
+        <div class="s1-kpi-num">4</div>
+        <div class="s1-kpi-label">Dias de<br>imersão</div>
+      </div>
+      <div class="s1-kpi">
+        <div class="s1-kpi-num">50+</div>
+        <div class="s1-kpi-label">Conexões<br>qualificadas</div>
+      </div>
+      <div class="s1-kpi">
+        <div class="s1-kpi-num">6</div>
+        <div class="s1-kpi-label">Parceiros<br>estratégicos</div>
+      </div>
+      <div class="s1-kpi" style="border-color:var(--coral-mid);background:var(--coral-light)">
+        <div class="s1-kpi-num">∞</div>
+        <div class="s1-kpi-label" style="color:var(--coral)">Pipeline<br>de negócios</div>
+      </div>
+    </div>
+    <div style="position:relative;z-index:2;border-top:1px solid var(--gray-line);padding-top:16px;font-size:11px;color:#AAAAAA;line-height:1.5">
+      Side events · Open calls · Reverse pitches<br>Reuniões · Networking
+    </div>
+  </div>
+  <div class="slide-num">01 / 15</div>
+</div>
+
+<!-- ======================== SLIDE 2 — RESUMO EXECUTIVO ======================== -->
+<div class="slide" id="s2">
+  <div style="width:100%;padding:52px 56px;display:flex;flex-direction:column;gap:0">
+    <div>
+      <div class="eyebrow">Resumo Executivo</div>
+      <div class="t-display-md">O evento em <span class="coral">números</span></div>
+      <div class="div-line"></div>
+    </div>
+    <div class="kpi-4">
+      <div class="kpi-box accent">
+        <div class="kpi-big" style="color:var(--white)">50+</div>
+        <div class="kpi-lbl">Conexões Qualificadas</div>
+        <div class="kpi-sub">Corporações, hubs, startups</div>
+      </div>
+      <div class="kpi-box">
+        <div class="kpi-big coral">4</div>
+        <div class="kpi-lbl">Dias de Evento</div>
+        <div class="kpi-sub">Side events & pitches</div>
+      </div>
+      <div class="kpi-box mint">
+        <div class="kpi-big" style="color:#2D6E22">6</div>
+        <div class="kpi-lbl">Parceiros Estratégicos</div>
+        <div class="kpi-sub">Mapeados e conectados</div>
+      </div>
+      <div class="kpi-box">
+        <div class="kpi-big coral">1</div>
+        <div class="kpi-lbl">Startup em Destaque</div>
+        <div class="kpi-sub">Painter Robot</div>
+      </div>
+    </div>
+    <div class="eco-strip">
+      <div class="eco-card">
+        <div class="eco-label">Corporate</div>
+        <div class="eco-tags"><span class="tag tag-gray">Globo</span><span class="tag tag-gray">Energisa</span></div>
+      </div>
+      <div class="eco-card">
+        <div class="eco-label">Programa</div>
+        <div class="eco-tags"><span class="tag tag-mint">Sebrae RS</span><span class="tag tag-mint">Sebrae PR</span><span class="tag tag-mint">Sicredi</span></div>
+      </div>
+      <div class="eco-card">
+        <div class="eco-label">Ecossistema</div>
+        <div class="eco-tags"><span class="tag tag-coral">Cubo Itaú</span><span class="tag tag-coral">Maravalley</span><span class="tag tag-coral">Sebrae</span></div>
+      </div>
+    </div>
+    <div class="quote-strip">
+      <p>"O evento gerou oportunidades concretas para construção de programas, originação de startups e desenvolvimento de novos negócios para a NEDGEX."</p>
+    </div>
+  </div>
+  <div class="slide-num">02 / 15</div>
+</div>
+
+<!-- ======================== SLIDE 3 — FRENTES ======================== -->
+<div class="slide" id="s3">
+  <div style="width:100%;padding:52px 56px;display:flex;flex-direction:column">
+    <div>
+      <div class="eyebrow">Pipeline Gerado</div>
+      <div class="t-display-md">4 frentes <span class="coral">estratégicas</span></div>
+      <div class="div-line"></div>
+    </div>
+    <div class="opp4">
+      <div class="opp-card">
+        <div class="opp-n">FRENTE 01</div>
+        <div class="opp-t">Programas de Inovação</div>
+        <div class="opp-p">Construção de programas estruturados com instituições de fomento — da ideação ao venture building recorrente.</div>
+        <div class="tags-row"><span class="tag tag-coral">Sebrae RS</span><span class="tag tag-coral">Sebrae PR</span><span class="tag tag-coral">Sicredi</span></div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-n">FRENTE 02</div>
+        <div class="opp-t">Inovação Aberta</div>
+        <div class="opp-p">Acesso a desafios reais de grandes corporações via reverse pitches, open calls e open innovation estruturado.</div>
+        <div class="tags-row"><span class="tag tag-mint">Cubo Itaú</span><span class="tag tag-mint">Globo</span><span class="tag tag-mint">Energisa</span></div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-n">FRENTE 03</div>
+        <div class="opp-t">Investimento em Startups</div>
+        <div class="opp-p">Identificação de startups com potencial de escala e aderência ao perfil industrial e tecnológico da NEDGEX.</div>
+        <div class="tags-row"><span class="tag tag-gray">Painter Robot</span><span class="tag tag-gray">Scouting Ativo</span></div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-n">FRENTE 04</div>
+        <div class="opp-t">Ecossistema e Parcerias</div>
+        <div class="opp-p">Aproximação com hubs estratégicos para ampliação contínua de deal flow e novas verticais de atuação.</div>
+        <div class="tags-row"><span class="tag tag-gray">Maravalley</span><span class="tag tag-gray">Cubo Itaú</span><span class="tag tag-gray">Sebrae</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">03 / 15</div>
+</div>
+
+<!-- ======================== SLIDE 4 — SEBRAE ======================== -->
+<div class="slide" id="s4">
+  <div class="s4-l">
+    <div class="eyebrow">Parceiro Estratégico</div>
+    <div class="t-display-sm">Sebrae</div>
+    <div class="div-line"></div>
+    <p class="t-body" style="max-width:380px">Maior instituição de apoio ao empreendedorismo do Brasil — presente em <strong>mais de 3.500 municípios</strong>, com acesso direto a startups, empreendedores e programas regionais.</p>
+    <p class="t-body" style="margin-top:10px;max-width:380px">Durante o evento, múltiplas unidades do Sebrae foram conectadas — abrindo caminho para uma <strong>esteira completa de inovação</strong> co-desenvolvida com a NEDGEX.</p>
+    <div class="contact-card" style="margin-top:20px">
+      <div class="avatar av-coral">GB</div>
+      <div>
+        <div class="contact-name">Glacieli Bobrzyk</div>
+        <div class="contact-role">Sebrae RS — Responsável pela conexão</div>
+      </div>
+    </div>
+    <div class="highlight-card" style="margin-top:16px">
+      <div class="hc-label">Oportunidade Central</div>
+      <div class="hc-text">"Possibilidade de construção de uma esteira completa de inovação em parceria com o Sebrae."</div>
+      <div class="unit-pills">
+        <span class="unit-pill">Sebrae RS</span>
+        <span class="unit-pill">Sebrae PR</span>
+      </div>
+    </div>
+  </div>
+  <div class="s4-r">
+    <div style="font-size:10px;font-weight:700;color:var(--gray-mid);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px">Instituição</div>
+    <div class="stat-row">
+      <div class="stat-icon si-coral">🏛️</div>
+      <div><div class="stat-val">3.500+</div><div class="stat-desc">municípios atendidos</div></div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-icon si-mint">🚀</div>
+      <div><div class="stat-val">Nacional</div><div class="stat-desc">Base de startups early-stage</div></div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-icon si-coral">🤝</div>
+      <div><div class="stat-val">Regional</div><div class="stat-desc">Presença no Sul — RS e PR</div></div>
+    </div>
+    <div style="height:1px;background:var(--gray-line);margin:14px 0"></div>
+    <div style="font-size:10px;font-weight:700;color:var(--gray-mid);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px">Possibilidades NEDGEX</div>
+    <div style="display:flex;flex-direction:column;gap:7px">
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-dark)"><span style="color:var(--coral);font-weight:700">→</span>Open calls conjuntas</div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-dark)"><span style="color:var(--coral);font-weight:700">→</span>Compartilhamento de base de startups</div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-dark)"><span style="color:var(--coral);font-weight:700">→</span>Programas de aceleração co-geridos</div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-dark)"><span style="color:var(--coral);font-weight:700">→</span>Hackathons e pitch reverso</div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-dark)"><span style="color:var(--coral);font-weight:700">→</span>Investimento pós-programa</div>
+    </div>
+  </div>
+  <div class="slide-num">04 / 15</div>
+</div>
+
+<!-- ======================== SLIDE 5 — PROGRAMA SEBRAE ======================== -->
+<div class="slide" id="s5">
+  <div class="s5-l">
+    <div class="eyebrow">Proposta em Construção</div>
+    <div class="t-display-sm">Programa<br><span class="coral">Sebrae × NEDGEX</span></div>
+    <div class="div-line"></div>
+    <p class="t-body">Proposta iniciada com Glacieli Bobrzyk (Sebrae RS) — modelo em que a NEDGEX atua como <strong>investidora e co-desenvolvedora da metodologia</strong>.</p>
+    <div class="msg-bar" style="margin-top:20px">
+      <p>"NEDGEX como investidora e co-desenvolvedora — gerando pipeline recorrente de startups de alto potencial."</p>
+    </div>
+    <div class="feature-list" style="margin-top:16px">
+      <div class="feat"><div class="feat-dot"></div><div class="feat-text">Chamadas abertas conjuntas com Sebrae</div></div>
+      <div class="feat"><div class="feat-dot"></div><div class="feat-text">Base de startups compartilhada</div></div>
+      <div class="feat"><div class="feat-dot"></div><div class="feat-text">Programas de aceleração com bolsas</div></div>
+      <div class="feat"><div class="feat-dot"></div><div class="feat-text">Investimento em startups selecionadas</div></div>
+    </div>
+  </div>
+  <div class="s5-r">
+    <div style="font-size:10px;font-weight:700;color:var(--gray-mid);letter-spacing:2px;text-transform:uppercase;margin-bottom:18px">Fluxo do Programa</div>
+    <div class="funnel-list">
+      <div class="f-step">
+        <div class="f-num-col">
+          <div class="f-circle active-c">1</div>
+          <div class="f-line col-line"></div>
+        </div>
+        <div class="f-content">
+          <div class="f-title">Mapeamento de Desafios</div>
+          <div class="f-sub">Identificação de problemas reais da indústria</div>
+        </div>
+      </div>
+      <div class="f-step">
+        <div class="f-num-col">
+          <div class="f-circle active-c">2</div>
+          <div class="f-line col-line"></div>
+        </div>
+        <div class="f-content">
+          <div class="f-title">Pitch Reverso</div>
+          <div class="f-sub">Corporações apresentam desafios às startups</div>
+        </div>
+      </div>
+      <div class="f-step">
+        <div class="f-num-col">
+          <div class="f-circle active-c">3</div>
+          <div class="f-line col-line"></div>
+        </div>
+        <div class="f-content">
+          <div class="f-title">Hackathons e Maratonas</div>
+          <div class="f-sub">Geração de soluções em formato intensivo</div>
+        </div>
+      </div>
+      <div class="f-step">
+        <div class="f-num-col">
+          <div class="f-circle active-c">4</div>
+          <div class="f-line col-line"></div>
+        </div>
+        <div class="f-content">
+          <div class="f-title">Aceleração com Bolsas</div>
+          <div class="f-sub">Suporte estruturado às startups selecionadas</div>
+        </div>
+      </div>
+      <div class="f-step">
+        <div class="f-num-col">
+          <div class="f-circle final-c">5</div>
+        </div>
+        <div class="f-content" style="padding-bottom:0">
+          <div class="f-title coral">Investimento e Venture Building</div>
+          <div class="f-sub">NEDGEX como investidora e co-desenvolvedora</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">05 / 15</div>
+</div>
+
+<!-- ======================== SLIDE 6 — SICREDI ======================== -->
+<div class="slide" id="s6">
+  <div class="s4-l">
+    <div class="eyebrow">Cooperativa Financeira</div>
+    <div class="t-display-sm">Sicredi</div>
+    <div class="div-line"></div>
+    <p class="t-body" style="max-width:380px">Sistema cooperativo com <strong>mais de 8,5 milhões de associados</strong> — forte atuação em desenvolvimento econômico regional e programas de empreendedorismo no Sul do Brasil.</p>
+    <p class="t-body" style="margin-top:10px;max-width:380px">Programa <strong>Inovar Juntos</strong> conecta startups a desafios reais de negócio — com ciclos recorrentes e histórico de mais de 200 startups envolvidas desde 2018.</p>
+    <div class="contact-card" style="margin-top:20px">
+      <div class="avatar av-mint">LC</div>
+      <div>
+        <div class="contact-name">Lucas</div>
+        <div class="contact-role">Sicredi — Inovação, Região dos Sinos & Serra Gaúcha</div>
+      </div>
+    </div>
+    <div style="background:var(--mint);border-radius:12px;padding:16px 20px;margin-top:16px">
+      <p style="font-size:14px;font-weight:500;color:var(--black);line-height:1.5;font-style:italic">"Oportunidade de transformar programas de empreendedorismo em pipeline recorrente de startups."</p>
+    </div>
+  </div>
+  <div class="s4-r">
+    <div style="font-size:10px;font-weight:700;color:var(--gray-mid);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px">Dados da Instituição</div>
+    <div class="stat-row">
+      <div class="stat-icon si-mint">🏦</div>
+      <div><div class="stat-val">8,5M+</div><div class="stat-desc">Associados no Brasil</div></div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-icon si-coral">📍</div>
+      <div><div class="stat-val">Sul</div><div class="stat-desc">Forte presença regional — RS e SC</div></div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-icon si-mint">⚡</div>
+      <div><div class="stat-val">Inovar Juntos</div><div class="stat-desc">Programa recorrente de startups</div></div>
+    </div>
+    <div style="height:1px;background:var(--gray-line);margin:14px 0"></div>
+    <div style="font-size:10px;font-weight:700;color:var(--gray-mid);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px">Oportunidades Mapeadas</div>
+    <div style="display:flex;flex-direction:column;gap:7px">
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-dark)"><span style="color:var(--black);font-weight:700">→</span>Participação em programas existentes</div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-dark)"><span style="color:var(--black);font-weight:700">→</span>Desenvolvimento de novos programas</div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-dark)"><span style="color:var(--black);font-weight:700">→</span>Hackathons corporativos regionais</div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-dark)"><span style="color:var(--black);font-weight:700">→</span>Pré-aceleração e venture building</div>
+    </div>
+    <div style="display:flex;gap:6px;margin-top:14px;flex-wrap:wrap">
+      <span class="tag tag-mint">Sinos</span><span class="tag tag-mint">Serra Gaúcha</span><span class="tag tag-mint">RS</span>
+    </div>
+  </div>
+  <div class="slide-num">06 / 15</div>
+</div>
+
+<!-- ======================== SLIDE 7 — CUBO ======================== -->
+<div class="slide" id="s7">
+  <div class="s4-l">
+    <div class="eyebrow">Hub de Inovação · São Paulo</div>
+    <div class="t-display-sm">Cubo <span class="coral">Itaú</span></div>
+    <div class="div-line"></div>
+    <p class="t-body" style="max-width:380px">Um dos maiores hubs de inovação da América Latina — conectando startups de alto potencial a grandes corporações e seus desafios reais de mercado.</p>
+    <div class="contact-card" style="margin-top:20px">
+      <div class="avatar av-coral">YS</div>
+      <div>
+        <div class="contact-name">Yuri Souza</div>
+        <div class="contact-role">Cubo Itaú — Contato Estratégico</div>
+      </div>
+    </div>
+    <div style="background:var(--coral-light);border:1px solid var(--coral-mid);border-radius:12px;padding:16px 20px;margin-top:16px">
+      <p style="font-size:14px;font-weight:500;color:var(--black);line-height:1.5;font-style:italic">"Acesso direto a grandes corporações e desafios reais de mercado."</p>
+    </div>
+  </div>
+  <div class="s4-r">
+    <div style="font-size:10px;font-weight:700;color:var(--gray-mid);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px">Frentes de Atuação</div>
+    <div class="cubo-grid">
+      <div class="cubo-item">
+        <div class="cubo-icon">📢</div>
+        <div><div class="cubo-item-title">Reverse Pitches</div><div class="cubo-item-desc">Corporações apresentam desafios</div></div>
+      </div>
+      <div class="cubo-item">
+        <div class="cubo-icon">🔓</div>
+        <div><div class="cubo-item-title">Open Innovation</div><div class="cubo-item-desc">Programas estruturados</div></div>
+      </div>
+      <div class="cubo-item">
+        <div class="cubo-icon">📋</div>
+        <div><div class="cubo-item-title">Open Calls</div><div class="cubo-item-desc">Chamadas abertas contínuas</div></div>
+      </div>
+      <div class="cubo-item">
+        <div class="cubo-icon">🔍</div>
+        <div><div class="cubo-item-title">Scouting</div><div class="cubo-item-desc">Origination de startups</div></div>
+      </div>
+    </div>
+    <div style="background:var(--gray-light);border-radius:10px;padding:16px;margin-top:10px">
+      <div style="font-size:11px;font-weight:600;color:var(--gray-mid);margin-bottom:8px">Pipeline gerado via Cubo</div>
+      <p style="font-size:13px;color:var(--gray-dark);line-height:1.5">Acesso ao portfólio de corporações parceiras — identificação de desafios reais e pipeline direto para venture building e investment.</p>
+    </div>
+  </div>
+  <div class="slide-num">07 / 15</div>
+</div>
+
+<!-- ======================== SLIDE 8 — DESAFIOS CORP ======================== -->
+<div class="slide" id="s8">
+  <div style="width:100%;padding:52px 56px;display:flex;flex-direction:column">
+    <div>
+      <div class="eyebrow">Desafios Identificados</div>
+      <div class="t-display-md">Problemas reais.<br><span class="coral">Oportunidades reais.</span></div>
+      <div class="div-line"></div>
+    </div>
+    <div class="corp2">
+      <div class="corp-card gc">
+        <div>
+          <div class="corp-badge">Mídia & Entretenimento</div>
+          <div class="corp-name">Globo</div>
+          <div class="corp-n">6</div>
+          <div class="corp-sub">Maior grupo de mídia da América Latina. Desafios apresentados diretamente em formato de reverse pitch durante o evento.</div>
+        </div>
+        <div class="corp-themes">
+          <span class="tag tag-mint">Climate Tech</span>
+          <span class="tag tag-mint">Energy Tech</span>
+          <span class="tag tag-mint">Smart Buildings</span>
+        </div>
+      </div>
+      <div class="corp-card ec">
+        <div>
+          <div class="corp-badge">Energia & Utilities</div>
+          <div class="corp-name">Energisa</div>
+          <div class="corp-n">5</div>
+          <div class="corp-sub">Maior distribuidora privada de energia do Brasil. Desafios mapeados com foco em tecnologia operacional e inteligência de ativos.</div>
+        </div>
+        <div class="corp-themes">
+          <span class="tag tag-coral">Energy Tech</span>
+          <span class="tag tag-coral">IA Industrial</span>
+          <span class="tag tag-coral">Infraestrutura</span>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-bar">
+      <p>"Possibilidade de geração de startups e programas a partir de problemas reais do mercado."</p>
+    </div>
+  </div>
+  <div class="slide-num">08 / 15</div>
+</div>
+
+<!-- ======================== SLIDE 9 — ENERGISA ======================== -->
+<div class="slide" id="s9">
+  <div class="s4-l">
+    <div class="eyebrow">Desafios Mapeados</div>
+    <div class="t-display-sm"><span class="coral">Energisa</span></div>
+    <div class="div-line"></div>
+    <div class="opp-map">
+      <div class="opp-row">
+        <div class="opp-row-accent"></div>
+        <div class="opp-n2">01</div>
+        <div><div class="opp-info-title">Gestão de Ativos Elétricos</div><div class="opp-info-desc">Monitoramento e controle de ativos distribuídos em campo</div></div>
+      </div>
+      <div class="opp-row">
+        <div class="opp-row-accent"></div>
+        <div class="opp-n2">02</div>
+        <div><div class="opp-info-title">Mapeamento de Vegetação</div><div class="opp-info-desc">Risco de interferência em linhas de transmissão</div></div>
+      </div>
+      <div class="opp-row">
+        <div class="opp-row-accent"></div>
+        <div class="opp-n2">03</div>
+        <div><div class="opp-info-title">Inteligência Operacional</div><div class="opp-info-desc">Otimização de processos de campo com IA</div></div>
+      </div>
+      <div class="opp-row">
+        <div class="opp-row-accent"></div>
+        <div class="opp-n2">04</div>
+        <div><div class="opp-info-title">Manutenção Preditiva</div><div class="opp-info-desc">Antecipação de falhas em equipamentos críticos</div></div>
+      </div>
+      <div class="opp-row">
+        <div class="opp-row-accent"></div>
+        <div class="opp-n2">05</div>
+        <div><div class="opp-info-title">Automação de Processos</div><div class="opp-info-desc">Digitalização de fluxos operacionais</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="s4-r">
+    <div class="tese-panel">
+      <div class="tese-label">Possibilidade NEDGEX</div>
+      <div class="tese-item"><div class="tese-dot"></div><div class="tese-text">Desenvolvimento de soluções em conjunto</div></div>
+      <div class="tese-item"><div class="tese-dot"></div><div class="tese-text">IA aplicada à operação</div></div>
+      <div class="tese-item"><div class="tese-dot"></div><div class="tese-text">Energy Tech</div></div>
+    </div>
+    <div style="background:var(--coral-light);border:1px solid var(--coral-mid);border-radius:12px;padding:16px 18px;margin-top:10px">
+      <p style="font-size:14px;font-weight:600;color:var(--coral);line-height:1.4;font-style:italic">"Tese forte para Energy Tech, IA Industrial e Infraestrutura."</p>
+    </div>
+  </div>
+  <div class="slide-num">09 / 15</div>
+</div>
+
+<!-- ======================== SLIDE 10 — GLOBO ======================== -->
+<div class="slide" id="s10">
+  <div class="s4-l">
+    <div class="eyebrow">Desafios Mapeados</div>
+    <div class="t-display-sm"><span class="coral">Globo</span></div>
+    <div class="div-line"></div>
+    <p class="t-body" style="max-width:360px">Maior grupo de mídia da América Latina — com infraestrutura massiva de produção, gerando demanda por soluções em <strong>eficiência energética, sustentabilidade e automação predial</strong>.</p>
+    <div style="background:var(--gray-light);border-radius:12px;padding:18px;margin-top:20px">
+      <div style="font-size:10px;font-weight:700;color:var(--gray-mid);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px">Verticals Identificadas</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;align-items:center;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:var(--black)"></div><span style="font-size:13px;color:var(--black);font-weight:500">Climate Tech</span></div>
+        <div style="display:flex;align-items:center;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:var(--black)"></div><span style="font-size:13px;color:var(--black);font-weight:500">Energy Tech</span></div>
+        <div style="display:flex;align-items:center;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:var(--black)"></div><span style="font-size:13px;color:var(--black);font-weight:500">Smart Buildings</span></div>
+      </div>
+    </div>
+    <div style="background:var(--black);border-radius:12px;padding:16px 18px;margin-top:12px">
+      <p style="font-size:14px;font-weight:500;color:var(--white);line-height:1.4;font-style:italic">"Oportunidades em Climate Tech, Energy Tech e Smart Buildings."</p>
+    </div>
+  </div>
+  <div class="s4-r">
+    <div style="font-size:10px;font-weight:700;color:var(--gray-mid);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px">Desafios Apresentados</div>
+    <div class="globo-g">
+      <div class="globo-item">
+        <div class="globo-emoji">⚡</div>
+        <div class="globo-lbl">Eficiência Energética</div>
+      </div>
+      <div class="globo-item">
+        <div class="globo-emoji">🧊</div>
+        <div class="globo-lbl">Centrais de Água Gelada</div>
+      </div>
+      <div class="globo-item">
+        <div class="globo-emoji">💧</div>
+        <div class="globo-lbl">Vazamentos d'Água</div>
+      </div>
+      <div class="globo-item">
+        <div class="globo-emoji">🔥</div>
+        <div class="globo-lbl">Vazamentos de Gás</div>
+      </div>
+      <div class="globo-item">
+        <div class="globo-emoji">🏢</div>
+        <div class="globo-lbl">Automação Predial</div>
+      </div>
+      <div class="globo-item">
+        <div class="globo-emoji">🔋</div>
+        <div class="globo-lbl">Baterias vs Geradores</div>
+      </div>
+    </div>
+    <div class="mint-panel">
+      <div class="mp-label">Temas Estratégicos</div>
+      <div class="mp-tags">
+        <span class="mp-tag">Climate Tech</span>
+        <span class="mp-tag">Energy Tech</span>
+        <span class="mp-tag">Smart Buildings</span>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">10 / 15</div>
+</div>
+
+<!-- ======================== SLIDE 11 — PAINTER ROBOT ======================== -->
+<div class="slide" id="s11">
+  <div class="feat-grid" style="padding:52px 56px 52px 56px">
+    <div class="eyebrow">Startup em Destaque</div>
+    <div class="t-display-sm"><span class="coral">Painter</span> Robot</div>
+    <div class="div-line"></div>
+    <div class="feat-row">
+      <div class="feat-icon fi-c">🤖</div>
+      <div><div class="feat-row-title">1º robô brasileiro</div><div class="feat-row-desc">Pintura e lavagem externa de edifícios com tecnologia patenteada</div></div>
+    </div>
+    <div class="feat-row">
+      <div class="feat-icon fi-m">⚡</div>
+      <div><div class="feat-row-title">4× mais rápido</div><div class="feat-row-desc">Do que métodos convencionais de pintura</div></div>
+    </div>
+    <div class="feat-row">
+      <div class="feat-icon fi-c">🦺</div>
+      <div><div class="feat-row-title">Zero risco operacional</div><div class="feat-row-desc">Eliminação de trabalho em altura — redução de acidentes</div></div>
+    </div>
+    <div class="feat-row" style="border:none">
+      <div class="feat-icon fi-m">📈</div>
+      <div><div class="feat-row-title">Barreira de entrada</div><div class="feat-row-desc">Tecnologia proprietária patenteada</div></div>
+    </div>
+  </div>
+  <div style="padding:52px 44px 52px 0;width:340px;flex-shrink:0;display:flex;flex-direction:column;gap:12px">
+    <div class="memo-card">
+      <div class="memo-type">Investment Memo</div>
+      <div class="memo-name">Painter Robot</div>
+      <div class="memo-tag">Robótica · Construção Civil</div>
+      <div class="memo-divider"></div>
+      <div class="memo-row"><span class="mk">Segmento</span><span class="mv">ConstrTech · Robotics</span></div>
+      <div class="memo-row"><span class="mk">Estágio</span><span class="mv">Early Stage</span></div>
+      <div class="memo-row"><span class="mk">Patenteado</span><span class="mv">Sim</span></div>
+      <div class="memo-row"><span class="mk">TAM</span><span class="mv coral">R$ 60,3 bi</span></div>
+      <div class="memo-row"><span class="mk">SAM</span><span class="mv coral">R$ 12,7 bi</span></div>
+      <div class="tam-section">
+        <div class="tam-lbl-row"><span class="tam-lbl">TAM</span><span class="tam-val coral">R$ 60,3 bi</span></div>
+        <div class="bar-track"><div class="bar-fill bf-coral" style="width:100%"></div></div>
+        <div class="tam-lbl-row"><span class="tam-lbl">SAM</span><span class="tam-val" style="color:var(--mint-dark)">R$ 12,7 bi</span></div>
+        <div class="bar-track"><div class="bar-fill bf-mint"></div></div>
+      </div>
+    </div>
+    <div style="background:var(--coral);border-radius:12px;padding:16px 18px">
+      <p style="font-size:13px;color:var(--white);font-weight:500;line-height:1.45;font-style:italic">"Startup com potencial de escalabilidade e aderência ao perfil industrial da NEDGEX."</p>
+    </div>
+  </div>
+  <div class="slide-num">11 / 15</div>
+</div>
+
+<!-- ======================== SLIDE 12 — MARAVALLEY ======================== -->
+<div class="slide" id="s12">
+  <div class="s4-l">
+    <div class="eyebrow">Hub de Inovação · Rio de Janeiro</div>
+    <div class="t-display-sm">Mara<span class="coral">valley</span></div>
+    <div class="div-line"></div>
+    <p class="t-body" style="max-width:380px">Hub de inovação na Zona Portuária do Rio — conectando startups, corporações, academia e governo. Principal polo tecnológico da capital fluminense, com suporte da Prefeitura do Rio.</p>
+    <div class="mv-4" style="margin-top:20px;max-width:380px">
+      <div class="mv-stat"><div class="mv-num">100+</div><div class="mv-lbl">Empresas residentes</div></div>
+      <div class="mv-stat"><div class="mv-num">R$250M</div><div class="mv-lbl">Captados em 2025</div></div>
+      <div class="mv-stat"><div class="mv-num">R$1bi+</div><div class="mv-lbl">Faturamento combinado</div></div>
+      <div class="mv-stat"><div class="mv-num">150+</div><div class="mv-lbl">Eventos realizados</div></div>
+    </div>
+    <div class="contact-card" style="margin-top:16px">
+      <div class="avatar av-mint">FA</div>
+      <div>
+        <div class="contact-name">Fabrício</div>
+        <div class="contact-role">Maravalley — Contato Estratégico</div>
+      </div>
+    </div>
+  </div>
+  <div class="s4-r">
+    <div style="font-size:10px;font-weight:700;color:var(--gray-mid);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px">Oportunidades Mapeadas</div>
+    <div style="display:flex;flex-direction:column;gap:7px">
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-dark)"><span style="color:var(--coral);font-weight:700">→</span>Reverse Pitches com corporações residentes</div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-dark)"><span style="color:var(--coral);font-weight:700">→</span>Open Innovation e chamadas abertas</div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-dark)"><span style="color:var(--coral);font-weight:700">→</span>Desenvolvimento de programas conjuntos</div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-dark)"><span style="color:var(--coral);font-weight:700">→</span>Acesso a startups early-stage cariocas</div>
+    </div>
+    <div style="height:1px;background:var(--gray-line);margin:14px 0"></div>
+    <div style="font-size:10px;font-weight:700;color:var(--gray-mid);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px">Parceiros do Ecossistema</div>
+    <div style="display:flex;flex-wrap:wrap;gap:5px">
+      <span class="tag tag-gray">COPPE/UFRJ</span><span class="tag tag-gray">Fiocruz</span><span class="tag tag-gray">AWS</span><span class="tag tag-gray">NVIDIA</span><span class="tag tag-gray">Axia</span>
+    </div>
+    <div style="background:var(--mint);border-radius:12px;padding:14px 18px;margin-top:14px">
+      <p style="font-size:14px;font-weight:500;color:var(--black);line-height:1.4;font-style:italic">"Ampliação do deal flow e acesso a novos empreendedores."</p>
+    </div>
+  </div>
+  <div class="slide-num">12 / 15</div>
+</div>
+
+<!-- ======================== SLIDE 13 — MAPA ESTRATÉGICO ======================== -->
+<div class="slide" id="s13">
+  <div style="width:100%;padding:52px 56px;display:flex;flex-direction:column">
+    <div>
+      <div class="eyebrow">Síntese Estratégica</div>
+      <div class="t-display-md">Tudo converge para <span class="coral">um objetivo</span></div>
+      <div class="div-line"></div>
+    </div>
+    <div class="map-grid">
+      <div class="map-col c1">
+        <div class="map-head">Programas</div>
+        <div class="map-name">Sebrae RS</div>
+        <div class="map-name">Sebrae PR</div>
+        <div class="map-name">Sicredi</div>
+      </div>
+      <div class="map-col c2">
+        <div class="map-head">Corporações</div>
+        <div class="map-name">Globo</div>
+        <div class="map-name">Energisa</div>
+      </div>
+      <div class="map-col c3">
+        <div class="map-head">Ecossistema</div>
+        <div class="map-name">Cubo Itaú</div>
+        <div class="map-name">Maravalley</div>
+      </div>
+      <div class="map-col c4">
+        <div class="map-head">Startups</div>
+        <div class="map-name">Painter Robot</div>
+        <div class="map-name">+ Pipeline</div>
+      </div>
+    </div>
+    <div class="map-arrow-row">
+      <div class="map-arr">↓</div>
+      <div class="map-arr">↓</div>
+      <div class="map-arr">↓</div>
+      <div class="map-arr">↓</div>
+    </div>
+    <div class="converge-block">
+      <div class="cb-title">Venture Building + VC</div>
+      <div class="cb-sub">NEDGEX como construtora e investidora do ecossistema</div>
+    </div>
+  </div>
+  <div class="slide-num">13 / 15</div>
+</div>
+
+<!-- ======================== SLIDE 14 — PRÓXIMOS PASSOS ======================== -->
+<div class="slide" id="s14">
+  <div style="width:100%;padding:52px 56px;display:flex;flex-direction:column">
+    <div>
+      <div class="eyebrow">Plano de Ação</div>
+      <div class="t-display-md">O que acontece <span class="coral">agora</span></div>
+      <div class="div-line"></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;margin-top:28px;max-width:680px">
+      <div style="display:flex;align-items:flex-start;gap:20px;border:1px solid var(--gray-line);border-radius:14px;padding:24px 28px;border-left:4px solid var(--coral)">
+        <div style="width:36px;height:36px;border-radius:50%;background:var(--coral);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px;font-weight:800;color:var(--white)">1</div>
+        <div>
+          <div style="font-size:16px;font-weight:700;color:var(--black)">Formalizar Programa com Sebrae</div>
+          <div style="font-size:13px;color:var(--gray-mid);margin-top:4px">Avançar proposta iniciada com Glacieli Bobrzyk (Sebrae RS) — desenhar estrutura do programa conjunto</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:20px;border:1px solid var(--gray-line);border-radius:14px;padding:24px 28px;border-left:4px solid var(--coral)">
+        <div style="width:36px;height:36px;border-radius:50%;background:var(--coral);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px;font-weight:800;color:var(--white)">2</div>
+        <div>
+          <div style="font-size:16px;font-weight:700;color:var(--black)">Formalizar Próximos Passos com Parceiros</div>
+          <div style="font-size:13px;color:var(--gray-mid);margin-top:4px">Agendar reuniões com Sicredi, Cubo Itaú, Maravalley — estruturar propostas e alinhamentos estratégicos</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:20px;border:1px solid var(--gray-line);border-radius:14px;padding:24px 28px;border-left:4px solid var(--black)">
+        <div style="width:36px;height:36px;border-radius:50%;background:var(--black);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px;font-weight:800;color:var(--white)">3</div>
+        <div>
+          <div style="font-size:16px;font-weight:700;color:var(--black)">Aproximação com Painter Robot</div>
+          <div style="font-size:13px;color:var(--gray-mid);margin-top:4px">Aprofundar avaliação da startup — due diligence inicial e análise de fit com tese de investimento da NEDGEX</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:20px;border:1px solid var(--gray-line);border-radius:14px;padding:24px 28px;border-left:4px solid var(--mint-dark)">
+        <div style="width:36px;height:36px;border-radius:50%;background:var(--mint-dark);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px;font-weight:800;color:var(--white)">4</div>
+        <div>
+          <div style="font-size:16px;font-weight:700;color:var(--black)">Criação de Calendário de Eventos NEDGEX</div>
+          <div style="font-size:13px;color:var(--gray-mid);margin-top:4px">Estruturar agenda de eventos, open calls e hackathons — posicionar NEDGEX como hub ativo do ecossistema</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">14 / 15</div>
+</div>
+
+<!-- ======================== SLIDE 15 — CONCLUSÃO ======================== -->
+<div class="slide" id="s15">
+  <div class="eyebrow">Web Summit Rio 2026</div>
+  <div class="t-display-sm" style="color:var(--white)">O Web Summit<br>foi só o começo.</div>
+  <div class="conc-divider"></div>
+  <div class="conc-quote">"O evento gerou oportunidades concretas para fortalecer a atuação da NEDGEX em Venture Building, Inovação Aberta e Desenvolvimento de Startups."</div>
+  <div class="conc-pills">
+    <div class="conc-pill"><div class="cp-dot"></div>Venture Building</div>
+    <div class="conc-pill"><div class="cp-dot"></div>Inovação Aberta</div>
+    <div class="conc-pill"><div class="cp-dot"></div>Startups</div>
+    <div class="conc-pill"><div class="cp-dot"></div>Investimentos</div>
+  </div>
+  <div class="conc-sig">NEDGEX · 2026 · Confidencial</div>
+  <div class="slide-num">15 / 15</div>
+</div>
+
+<!-- DOTS -->
+<div class="dots-row" id="dotsRow"></div>
+
+</div>
+<script>
+let cur=0;
+const slides=document.querySelectorAll('.slide');
+const n=slides.length;
+const dotsRow=document.getElementById('dotsRow');
+const ctr=document.getElementById('ctr');
+slides.forEach((_,i)=>{
+  const b=document.createElement('button');
+  b.className='dot'+(i===0?' active':'');
+  b.setAttribute('aria-label','Slide '+(i+1));
+  b.onclick=()=>go(i);
+  dotsRow.appendChild(b);
+});
+function go(i){
+  slides[cur].classList.remove('active');
+  dotsRow.children[cur].classList.remove('active');
+  cur=(i+n)%n;
+  slides[cur].classList.add('active');
+  dotsRow.children[cur].classList.add('active');
+  ctr.textContent=(cur+1)+' / '+n;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function nextSlide(){go(cur+1)}
+function prevSlide(){go(cur-1)}
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='ArrowDown')nextSlide();
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp')prevSlide();
+});
+</script>
+</body>
+</html>
